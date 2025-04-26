@@ -14,7 +14,7 @@ class LoginPage {
     }
 
     async navigate() {
-        await this.page.goto(appURL);
+        await this.page.goto("/");
     }
 
     async login() {
