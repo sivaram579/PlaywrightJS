@@ -1,9 +1,8 @@
 const { expect } = require('@playwright/test');
 
 class LoginPage {
-    constructor(page, testInfo) {
+    constructor(page) {
         this.page = page;
-        this.testInfo = testInfo;
         this.usernameField = page.locator('[data-test="username"]');
         this.passwordField = page.locator('[data-test="password"]');
         this.loginButton = page.locator('[data-test="login-button"]');
@@ -16,13 +15,13 @@ class LoginPage {
     }
 
     async login() {
-        await this.usernameField.fill(this.testInfo.config.use.APP_USERNAME);
-        await this.passwordField.fill(this.testInfo.config.use.APP_PASSWORD);
+        await this.usernameField.fill('standard_user');
+        await this.passwordField.fill('secret_sauce');
         await this.loginButton.click();
     }
 
     async verifyLoginSuccess() {
-        await expect(this.page).toHaveURL(`${this.testInfo.config.use.baseURL}/inventory.html`);
+        await expect(this.page).toHaveURL('https://www.saucedemo.com/inventory.html');
     }
 
     async logout() {
