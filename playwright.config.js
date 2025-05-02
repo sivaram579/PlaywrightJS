@@ -29,6 +29,10 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://www.saucedemo.com',
 
+    /* Environment variables for login credentials */
+    APP_USERNAME: 'standard_user',
+    APP_PASSWORD: 'secret_sauce',
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
